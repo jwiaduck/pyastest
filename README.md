@@ -3,7 +3,8 @@ pyastest
 a command line tool to compare Python ASTs
 
 # Quick start
-Note: Developed with Python 3.9.10 .
+Note: Developed with Python 3.9.10!
+
 Note: Rudimentally tested. Proceed with caution!
 
 Currently, only Abstract Syntax Tree equality check between two files is supported.
