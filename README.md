@@ -1,6 +1,6 @@
 pyastest
 ===========================
-a command line tool to compare Python ASTs
+a command line tool to generate, modify, and compare Python ASTs
 
 # Quick start
 Note: Developed with Python 3.9.10!
