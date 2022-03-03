@@ -19,4 +19,4 @@ True: ASTs are equal!
 Done!
 ```
 
-I plan to build both this comparison tool as well as other tools utilizing Abstract Syntax Trees in this repository.
+In this repo, I plan to build both this comparison tool as well as other tools utilizing Abstract Syntax Trees.

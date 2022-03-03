@@ -48,7 +48,7 @@ def getAst(source):
 def main():
 
     if len(sys.argv) != 3:
-        print("Usage: python3 pyatest.py path/to/file1 path/to/file2.")
+        print("Usage: python3 pyatest.py path/to/file1 path/to/file2")
         exit(0)
 
     print("Starting...\n")
