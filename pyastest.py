@@ -1,5 +1,5 @@
 # pyastest:
-#   a command line tool to generate, modify, and compare Python ASTs
+#   a command line tool to parse, modify, and compare Python ASTs
 # 
 # @jwiaduck 3 March 2022
 #
