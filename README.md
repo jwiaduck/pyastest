@@ -2,7 +2,7 @@ pyastest
 ===========================
 a command line tool to parse, modify, and compare Python ASTs
 
-# Quick start
+# Quick Start
 Note: Developed with Python 3.9.10!
 
 Note: Rudimentally tested. Proceed with caution!
