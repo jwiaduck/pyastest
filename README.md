@@ -12,7 +12,7 @@ Currently, only Abstract Syntax Tree equality check between two files is support
 ```console
 $ git clone <this repo>
 $ cd pyastest
-$ python3 pyastest.py path/to/file1 path/to/file2
+$ python3 pyastest.py <path/to/file1> <path/to/file2>
 Starting...
 ...
 True: ASTs are equal!
