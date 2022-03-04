@@ -4,8 +4,10 @@
 # @jwiaduck 3 March 2022
 #
 
+import argparse
 import ast
 import sys
+import os
 
 ###
 ### Visitor Subclass
@@ -23,21 +25,49 @@ class MyVisitor(ast.NodeVisitor):
 ### Helpers
 ###
 
-def parseAst(source):
+def parse_ast(source):
     tree = ast.parse(source)
     ast.fix_missing_locations(tree)
     return tree
 
-def compileAst(tree_in):
+def exec_co_ast(tree_in):
     exec(compile(tree_in, filename="<ast>", mode="exec"))
 
-def unparseAst(tree_in):
+def unparse_ast(tree_in):
     print(ast.unparse(tree_in))
 
-def getAst(source):
-    tree = parseAst(source)
-    print("Got AST!\n")
+def get_ast(source):
+    tree = parse_ast(source)
+    print("Got AST!")
     return tree
+
+
+def r_w_file(file):
+    if os.path.exists(file):
+        if os.access(file, os.W_OK and os.R_OK):
+            return file
+        else:
+            print('The file is not readable and/or writable')
+            exit(0)
+    else:
+        print('The specified file does not exist')
+        exit(0)
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(prog='pyastest')
+    parser.add_argument('original', metavar='FILE_1', type=r_w_file,
+                        help='Original: path/to/<source1>.py\n')
+    parser.add_argument('changed', metavar='FILE_2', type=r_w_file,
+                        help='Changed: path/to/<source2>.py\n')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1')
+
+    args = parser.parse_args()
+
+    # Normalize the path
+    args.original = os.path.abspath(args.original)
+    args.changed = os.path.abspath(args.changed)
+
+    return args
 
 
 ###
@@ -46,30 +76,28 @@ def getAst(source):
 
 def main():
 
-    if len(sys.argv) != 3:
-        print("Usage: python3 pyatest.py path/to/file1 path/to/file2")
-        exit(0)
+    args = parse_arguments() 
 
     print("Starting...\n")
 
-    file_1 = sys.argv[1]
+    file_1 = args.original
     with open(file_1, encoding='utf-8') as f:
         src1 = f.read()
     f.close()
 
-    file_2 = sys.argv[2]
+    file_2 = args.changed
     with open(file_2, encoding='utf-8') as f:
         src2 = f.read()
     f.close()
-
-    tree_1 = getAst(src1)
-    tree_2 = getAst(src2)
+    print(f"Src Original: {file_1}\nSrc Changed: {file_2}")
+    tree_1 = get_ast(src1)
+    tree_2 = get_ast(src2)
     
     if ast.dump(tree_1) == ast.dump(tree_2):
-        print("True: ASTs are equal!")
+        print("\nTrue: ASTs are equal!")
     else:
-        print("False: Not equal.")
-    print("Done!")
+        print("\nFalse: Not equal.")
+    print("Finished!")
     exit(1)
 
 
