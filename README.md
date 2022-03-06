@@ -12,7 +12,7 @@ Currently, only Abstract Syntax Tree equality check between two files is support
 ```console
 $ git clone <this repo>
 $ cd pyastest
-$ python3 pyastest.py <path/to/file1> <path/to/file2>
+$ python3 pyastest.py -d <path/to/file1> <path/to/file2>
 Starting...
 ...
 True: ASTs are equal!
@@ -20,3 +20,10 @@ Finished!
 ```
 
 In this repo, I plan to build both this comparison tool as well as other tools utilizing Abstract Syntax Trees.
+
+# Documentation
+## Options
+Only one option [-d, etc.] must be specified.
+### Diff
+`-d/--diff` must be specified, followed by `path/to/ORIGINAL path/to/CHANGED'
+Ex: 'python3.5 -d \~/dev/source.txt) \~/dev/source_)changed.txt)` 

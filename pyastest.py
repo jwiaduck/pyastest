@@ -46,16 +46,32 @@ def r_w_file(file):
         print('The specified file does not exist')
         exit(0)
 
+class VerboseStore(argparse.Action):
+    def __init__(self, option_strings, dest, nargs=None, **kwargs):
+        if nargs is not None:
+            raise ValueError('nargs not allowed')
+        super(VerboseStore, self).__init__(option_strings, dest, **kwargs)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        print('value(s) %r for the %r option' % (values, option_string))
+        setattr(namespace, self.dest, values)
+
 # command line argument parsing
 def parse_arguments():
-    parser = argparse.ArgumentParser(prog='pyastest')
-    parser.add_argument('original', metavar='FILE_1', type=r_w_file,
-                        help='Original: path/to/<source1>.py\n')
-    parser.add_argument('changed', metavar='FILE_2', type=r_w_file,
-                        help='Changed: path/to/<source2>.py\n')
+    parser = argparse.ArgumentParser(prog='pyastest',
+                                     description='a command line tool to parse, modify, and compare Python ASTs',
+                                     usage='%(prog)s.py [OPTIONS] ... ORIGINAL CHANGED')
+    tool_group = parser.add_mutually_exclusive_group(required=True)
+
+    tool_group.add_argument('-d', '--diff', action='store_true', help='diff the ASTs of two files')
+    parser.add_argument('original', metavar='ORIGINAL', type=r_w_file,
+                        help='path/to/<source1>.py\n')
+    parser.add_argument('changed', metavar='CHANGED', type=r_w_file,
+                        help='path/to/<source2>.py\n')
     parser.add_argument('--version', action='version', version='%(prog)s v0.1')
 
     args = parser.parse_args()
+    print(vars(args))
 
     # Normalize the path
     args.original = os.path.abspath(args.original)
