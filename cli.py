@@ -37,10 +37,10 @@ def parse_arguments():
 
     # parse the args and return Namespace object
     args = parser.parse_args()
-    print(vars(args))
+    # print(vars(args))
 
     # if args Namespace object is empty, print help and exit(1) (essentially calling pyatest -h)
-    if len(vars(args)) is 0:
+    if len(vars(args)) == 0:
         parser.print_help()
         exit(1)
 
