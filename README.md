@@ -2,7 +2,7 @@ pyastest
 ===========================
 a command line tool to parse, modify, and compare Python ASTs
 
-sort of providing an interface to ast.py.
+sort of providing an interface to ast.py. initially to provide some better scripting capabilities, but it might evolve into a suite of tools.
 
 # Quick Start
 Note: Developed with Python 3.9.10!
@@ -20,8 +20,6 @@ Starting...
 True: ASTs are equal!
 Finished!
 ```
-
-In this repo, I plan to build both this comparison tool as well as other tools utilizing Abstract Syntax Trees.
 
 # Documentation
 ## Options
