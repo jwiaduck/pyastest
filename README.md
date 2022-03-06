@@ -33,10 +33,9 @@ Ex: `$ python3 pyastest.py diff ~/dev/source.py ~/dev/source_changed.py`
 
 ### Info
 
-__WARNING__: this is in development. use at more risk.
-
 `info` command, followed by one file to be analyzed, `path/to/SOURCE.py`
 
 `info` will read in and generate an AST for the given file, then visit the AST to gather info on the nodes.
+print a summary of node type information.
 
 Ex: `$ python3 pyastest.py info ~/dev/source.py`

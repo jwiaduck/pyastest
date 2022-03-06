@@ -16,7 +16,6 @@ from cli import parse_arguments
 def main():
 
     args = parse_arguments()
-
     print("Starting...\n")
     args.func(args)
     print("Finished!")

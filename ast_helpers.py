@@ -8,6 +8,7 @@
 #
 
 import ast
+from visitors import MyVisitor
 
 ###
 ### Helpers
@@ -59,4 +60,10 @@ def ast_diff(args):
     
 # get the info from a source code file
 def ast_info(args):
-        print("INFOOOOooooOOOooooooOOO!\n")
+    args.source = args.info[0].read()
+    args.info[0].close()
+    tree = parse_ast(args.source)
+    
+    Visitor = MyVisitor()
+    Visitor.visit(tree)
+    Visitor.get_count()
