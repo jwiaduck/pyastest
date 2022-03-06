@@ -31,4 +31,4 @@ Only one option must be specified.
 
 `diff` will read in and generate an AST for each file, then do an equality check on the two ASTs.
 
-Ex: `$ python3.5 pyastest.py diff \~/dev/source.txt \~/dev/source_changed.txt` 
+Ex: `$ python3.5 pyastest.py diff ~/dev/source.txt ~/dev/source_changed.txt` 
