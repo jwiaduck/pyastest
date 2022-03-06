@@ -42,7 +42,7 @@ def ast_diff(args):
 
     args.diff[0].close()
     args.diff[1].close()
-    
+
     src1 = args.original
     src2 = args.changed
 
@@ -54,3 +54,8 @@ def ast_diff(args):
         print("\nTrue: ASTs are equal!")
     else:
         print("\nFalse: Not equal.")
+
+    
+# get the info from a source code file
+def ast_info(args):
+        print("INFOOOOooooOOOooooooOOO!\n")

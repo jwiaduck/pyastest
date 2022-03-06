@@ -21,7 +21,6 @@ def main():
     args.func(args)
     print("Finished!")
     exit(0)
-
         
 
 if __name__ == '__main__':

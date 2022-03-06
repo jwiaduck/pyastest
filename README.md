@@ -25,8 +25,18 @@ Finished!
 ## Options
 Only one option must be specified.
 ### Diff
-`diff` command, followed by the files to be diffed, `path/to/ORIGINAL` and `path/to/CHANGED`
+`diff` command, followed by the files to be diffed, `path/to/ORIGINAL.py` and `path/to/CHANGED.py`
 
 `diff` will read in and generate an AST for each file, then do an equality check on the two ASTs.
 
-Ex: `$ python3.5 pyastest.py diff ~/dev/source.txt ~/dev/source_changed.txt` 
+Ex: `$ python3 pyastest.py diff ~/dev/source.py ~/dev/source_changed.py` 
+
+### Info
+
+__WARNING__: this is in development. use at more risk.
+
+`info` command, followed by one file to be analyzed, `path/to/SOURCE.py`
+
+`info` will read in and generate an AST for the given file, then visit the AST to gather info on the nodes.
+
+Ex: `$ python3 pyastest.py info ~/dev/source.py`

@@ -10,7 +10,7 @@
 import argparse
 import os
 
-from ast_helpers import ast_diff
+from ast_helpers import ast_diff, ast_info
 
 
 # command line argument parsing
@@ -34,6 +34,17 @@ def parse_arguments():
 
     # if `diff`, set args.func to ast_diff (this works so we can have others set their fxns respectively)
     parser_diff.set_defaults(func=ast_diff)
+
+
+    # create the parser for the "info" command
+    parser_diff = subparsers.add_parser('info', help='''get info for the AST nodes from a file\nusage: pyastest info path/to/SOURCE.py
+                                        ''', formatter_class=argparse.RawTextHelpFormatter, description='get info for the AST nodes from a Python source code file\n', usage='pyastest info [-h] SOURCE')
+    parser_diff.add_argument('info', metavar = 'SOURCE', nargs=1, type=argparse.FileType('r', encoding='UTF-8'), 
+                                help='path to file to be analyzed\nusage: pyastest info path/to/SOURCE.py')
+
+    # if `diff`, set args.func to ast_diff (this works so we can have others set their fxns respectively)
+    parser_diff.set_defaults(func=ast_info)
+
 
     # parse the args and return Namespace object
     args = parser.parse_args()
