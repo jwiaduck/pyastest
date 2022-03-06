@@ -26,4 +26,5 @@ In this repo, I plan to build both this comparison tool as well as other tools u
 Only one option [-d, etc.] must be specified.
 ### Diff
 `-d/--diff` must be specified, followed by `path/to/ORIGINAL path/to/CHANGED`
+
 Ex: `python3.5 -d \~/dev/source.txt) \~/dev/source_)changed.txt)` 
