@@ -8,7 +8,7 @@
 #
 
 import ast
-from visitors import MyVisitor
+from visitors import InfoVisitor
 
 ###
 ### Helpers
@@ -64,6 +64,9 @@ def ast_info(args):
     args.info[0].close()
     tree = parse_ast(args.source)
     
-    Visitor = MyVisitor()
+    Visitor = InfoVisitor()
     Visitor.visit(tree)
-    Visitor.get_count()
+    Visitor.get_counts()
+    Visitor.get_compares()
+    Visitor.get_binary()
+    Visitor.get_assignments()
