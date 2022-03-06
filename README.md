@@ -2,6 +2,8 @@ pyastest
 ===========================
 a command line tool to parse, modify, and compare Python ASTs
 
+sort of providing an interface to ast.py.
+
 # Quick Start
 Note: Developed with Python 3.9.10!
 
@@ -12,7 +14,7 @@ Currently, only Abstract Syntax Tree equality check between two files is support
 ```console
 $ git clone <this repo>
 $ cd pyastest
-$ python3 pyastest.py -d <path/to/file1> <path/to/file2>
+$ python3 pyastest.py diff <path/to/file1> <path/to/file2>
 Starting...
 ...
 True: ASTs are equal!
@@ -23,8 +25,10 @@ In this repo, I plan to build both this comparison tool as well as other tools u
 
 # Documentation
 ## Options
-Only one option [-d, etc.] must be specified.
+Only one option must be specified.
 ### Diff
-`-d/--diff` must be specified, followed by `path/to/ORIGINAL path/to/CHANGED`
+`diff` command, followed by the files to be diffed, `path/to/ORIGINAL` and `path/to/CHANGED`
 
-Ex: `python3.5 -d \~/dev/source.txt) \~/dev/source_)changed.txt)` 
+`diff` will read in and generate an AST for each file, then do an equality check on the two ASTs.
+
+Ex: `$ python3.5 pyastest.py diff \~/dev/source.txt \~/dev/source_changed.txt` 

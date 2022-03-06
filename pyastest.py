@@ -7,7 +7,6 @@
 # @jwiaduck 3 March 2022
 #
 
-from ast_helpers import ast_diff
 from cli import parse_arguments
 
 ###
@@ -16,15 +15,14 @@ from cli import parse_arguments
 
 def main():
 
-    args = parse_arguments() 
+    args = parse_arguments()
 
     print("Starting...\n")
-
-    ast_diff(args)
-
+    args.func(args)
     print("Finished!")
-    exit(1)
+    exit(0)
 
+        
 
 if __name__ == '__main__':
     main()

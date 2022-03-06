@@ -36,6 +36,13 @@ def get_ast(source):
 
 # diff two asts from orginal and changed source codes
 def ast_diff(args):
+    # Get FileType objects (opened and ready to read)
+    args.original = args.diff[0].read()
+    args.changed = args.diff[1].read()
+
+    args.diff[0].close()
+    args.diff[1].close()
+    
     src1 = args.original
     src2 = args.changed
 
