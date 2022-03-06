@@ -39,3 +39,6 @@ Ex: `$ python3 pyastest.py diff ~/dev/source.py ~/dev/source_changed.py`
 prints a summary of node type information.
 
 Ex: `$ python3 pyastest.py info ~/dev/source.py`
+
+The output is currently long (flags to come). Pipe to a txt file:
+```$ python3 pyastest.py info ~/dev/source.py > output```
