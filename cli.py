@@ -23,7 +23,7 @@ def parse_arguments():
 
     subparsers = parser.add_subparsers(title='Subcommands',
                                         description='Valid Subcommands',
-                                        help='''current subcommands: diff
+                                        help='''current subcommands: diff, info
                                         ''')
     
     # create the parser for the "diff" command
