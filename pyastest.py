@@ -37,7 +37,7 @@ def get_ast(source):
 # checks that file is read/write-able
 def r_w_file(file):
     if os.path.exists(file):
-        if os.access(file, os.W_OK and os.R_OK):
+        if os.access(file, os.R_OK):
             return file
         else:
             print('The file is not readable and/or writable')
