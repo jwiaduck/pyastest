@@ -40,6 +40,7 @@ def parse_arguments():
     # print(vars(args))
 
     # if args Namespace object is empty, print help and exit(1) (essentially calling pyatest -h)
+    # TODO: #1 see if theres a more elegant way to do this?
     if len(vars(args)) == 0:
         parser.print_help()
         exit(1)
