@@ -31,5 +31,19 @@ def unparse_ast(tree_in):
 # agg. fxn to call AST helpers - namely, get_ast (and return tree)
 def get_ast(source):
     tree = parse_ast(source)
-    print("Got AST!")
+    # print("Got AST!")
     return tree
+
+# diff two asts from orginal and changed source codes
+def ast_diff(args):
+    src1 = args.original
+    src2 = args.changed
+
+    print(f"Original Source: {args.diff[0].name}\nChanged Source: {args.diff[1].name}")
+    tree_1 = get_ast(src1)
+    tree_2 = get_ast(src2)
+
+    if ast.dump(tree_1) == ast.dump(tree_2):
+        print("\nTrue: ASTs are equal!")
+    else:
+        print("\nFalse: Not equal.")
