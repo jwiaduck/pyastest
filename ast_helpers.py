@@ -50,6 +50,7 @@ def ast_diff(args):
     tree_1 = get_ast(src1)
     tree_2 = get_ast(src2)
 
+    # simple diff check
     if ast.dump(tree_1) == ast.dump(tree_2):
         print("\nTrue: ASTs are equal!")
     else:
